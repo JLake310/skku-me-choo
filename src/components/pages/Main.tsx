@@ -59,7 +59,7 @@ const Wrapper = styled.div`
 
 const HeaderWrapper = styled.div`
   width: 390rem;
-  height: 300rem;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,13 +75,12 @@ const HeaderText = styled.div`
 
 const CenterWrapper = styled.div`
   width: 390rem;
-  height: 200rem;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  margin-top: 100rem;
 `;
 
 const RecomText = styled.div`
@@ -118,7 +117,7 @@ const NaverButton = styled.button`
 const FooterText = styled.span`
   font-family: "Pretendard-Medium";
   font-size: 10rem;
-  height: 295rem;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
