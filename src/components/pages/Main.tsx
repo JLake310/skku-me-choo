@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import food_data from "@assets/data/data.json";
 import styled from "styled-components";
+import githubimg from "@assets/images/githublogo.png";
 
 const MainPage = () => {
   const food_list: string[][] = food_data.all;
@@ -27,6 +28,10 @@ const MainPage = () => {
     }
   };
 
+  const GithubHandler = (link: string) => {
+    window.location.href = link;
+  };
+
   return (
     <Wrapper>
       <HeaderWrapper>
@@ -40,7 +45,14 @@ const MainPage = () => {
           네이버 지도에서 보기
         </NaverButton>
       </CenterWrapper>
-      <FooterText>Copyright © Jaeyeon Kim All Rights Reserved.</FooterText>
+      <FooterWrapper>
+        <GithubIMG
+          src={githubimg}
+          alt=""
+          onClick={() => GithubHandler("https://github.com/JLake310")}
+        />
+        <FooterText>Copyright © Jaeyeon Kim All Rights Reserved.</FooterText>
+      </FooterWrapper>
     </Wrapper>
   );
 };
@@ -117,9 +129,23 @@ const NaverButton = styled.button`
 const FooterText = styled.span`
   font-family: "Pretendard-Medium";
   font-size: 10rem;
-  height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   margin-bottom: 5rem;
+  margin-top: 5rem;
+`;
+
+const GithubIMG = styled.img`
+  width: 22rem;
+  height: 22rem;
+  cursor: pointer;
+`;
+
+const FooterWrapper = styled.div`
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 `;
