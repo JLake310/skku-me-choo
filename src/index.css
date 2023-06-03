@@ -28,3 +28,7 @@ code {
   font-family: "Pretendard-SemiBold";
   src: url("./assets/fonts/Pretendard-SemiBold.ttf");
 }
+@font-face {
+  font-family: "BMHANNAPro";
+  src: url("./assets/fonts/BMHANNAPro.ttf");
+}
