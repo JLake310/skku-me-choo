@@ -1,13 +1,19 @@
 import React, { useState } from "react";
-import food_data from "@assets/data/data.json";
+import foodData from "@assets/data/data.json";
 import styled from "styled-components";
 import githubimg from "@assets/images/githublogo.png";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 
 const MainPage = () => {
-  const food_list: string[][] = food_data.all;
+  const foodList: (string | number)[][] = foodData.jagwa;
+  const [newFoodList, setFoodList] = useState(foodList);
   const [recom, setRecom] = useState(
-    Math.round(Math.random() * food_list.length)
+    Math.round(Math.random() * newFoodList.length)
   );
+  const PriceRange = [3500, 30000];
+  const [sliderVal, setVal] = useState([PriceRange[0], PriceRange[1]]);
+
   const isMobile = function () {
     const match = window.matchMedia("(pointer:coarse)");
     return match && match.matches;
@@ -15,12 +21,12 @@ const MainPage = () => {
   const RandomHandler = () => {
     for (let i = 0; i < 10; i++) {
       setTimeout(() => {
-        setRecom(Math.round(Math.random() * (food_list.length - 1)));
+        setRecom(Math.round(Math.random() * (newFoodList.length - 1)));
       }, 50 * i);
     }
   };
 
-  const HandleRedirect = (id: string) => {
+  const HandleRedirect = (id: string | number) => {
     if (isMobile()) {
       window.location.href = `https://m.place.naver.com/restaurant/${id}/home`;
     } else {
@@ -32,6 +38,21 @@ const MainPage = () => {
     window.location.href = link;
   };
 
+  const SliderHandler = (value: number | number[]) => {
+    if (Array.isArray(value)) {
+      setVal(value);
+      let newList: (string | number)[][] = [];
+      // eslint-disable-next-line array-callback-return
+      foodList.map((item) => {
+        if (!(Number(item[2]) > value[1] || Number(item[3]) < value[0])) {
+          newList.push(item);
+        }
+      });
+      setRecom(Math.round(Math.random() * (newList.length - 1)));
+      setFoodList(newList);
+    }
+  };
+
   return (
     <Wrapper>
       <HeaderWrapper>
@@ -39,9 +60,35 @@ const MainPage = () => {
         <HeaderText>메뉴 추천 좀</HeaderText>
       </HeaderWrapper>
       <CenterWrapper>
-        <RecomText>{food_list[recom][0]}</RecomText>
+        <RecomText>{newFoodList[recom][0]}</RecomText>
         <RecomButton onClick={RandomHandler}>메뉴 바꾸기</RecomButton>
-        <NaverButton onClick={() => HandleRedirect(food_list[recom][1])}>
+        <RangeText>
+          {sliderVal[0]}원부터 {sliderVal[1]}원까지
+        </RangeText>
+        <SliderWrapper>
+          <Slider
+            range
+            railStyle={{ backgroundColor: "#f8f8ff", height: 10 }}
+            trackStyle={{ backgroundColor: "#2b6653", height: 10 }}
+            handleStyle={{
+              borderColor: "#2b6653",
+              height: 28,
+              width: 28,
+              // marginLeft: -10,
+              marginTop: -9,
+              backgroundColor: "#2b6653",
+              opacity: 1.0,
+            }}
+            min={PriceRange[0]}
+            max={PriceRange[1]}
+            step={500}
+            defaultValue={[PriceRange[0], PriceRange[1]]}
+            onChange={(value) => {
+              SliderHandler(value);
+            }}
+          />
+        </SliderWrapper>
+        <NaverButton onClick={() => HandleRedirect(newFoodList[recom][1])}>
           네이버 지도에서 보기
         </NaverButton>
       </CenterWrapper>
@@ -88,9 +135,13 @@ const HeaderText = styled.div`
   margin-bottom: 10rem;
 `;
 
+const SliderWrapper = styled.div`
+  width: 280rem;
+`;
+
 const CenterWrapper = styled.div`
   width: 390rem;
-  height: 30vh;
+  height: 35vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -100,15 +151,14 @@ const CenterWrapper = styled.div`
 
 const RecomText = styled.div`
   font-family: "BMHANNAPro";
-  font-size: 30rem;
+  font-size: 32rem;
 `;
 
 const RecomButton = styled.button`
-  width: 100rem;
-  height: 40rem;
-  //   font-family: "Pretendard-SemiBold";
+  width: 120rem;
+  height: 50rem;
   font-family: "BMHANNAPro";
-  font-size: 16rem;
+  font-size: 20rem;
   border-radius: 10rem;
   border: 0px;
   background: #2b6653;
@@ -119,7 +169,6 @@ const RecomButton = styled.button`
 const NaverButton = styled.button`
   width: 150rem;
   height: 40rem;
-  //   font-family: "Pretendard-SemiBold";
   font-family: "BMHANNAPro";
   font-size: 16rem;
   border-radius: 10rem;
@@ -146,9 +195,14 @@ const GithubIMG = styled.img`
 `;
 
 const FooterWrapper = styled.div`
-  height: 20vh;
+  height: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+`;
+
+const RangeText = styled.span`
+  font-family: "BMHANNAPro";
+  font-size: 20rem;
 `;
