@@ -69,6 +69,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  background: white;
 `;
 
 const HeaderWrapper = styled.div`
