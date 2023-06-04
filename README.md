@@ -4,7 +4,7 @@
 
 📎 [체험해보기](https://skku-me-choo.vercel.app/)
 
-<img width="1000" alt="demo" src="https://github.com/JLake310/skku-me-choo/assets/86578246/f2154ba4-e141-45b8-969d-aa9277462543">
+<img width="1000" alt="design" src="https://github.com/JLake310/skku-me-choo/assets/86578246/50ae7d56-4588-4dda-8bf9-c41c30323c43">
 
 ## Release Note
 ### v1.0.0
@@ -21,3 +21,6 @@
 
 ### v2.0.0
 인사캠 버전 추가
+
+### v2.1.0
+디자인 개편
