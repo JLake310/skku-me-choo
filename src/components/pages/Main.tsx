@@ -49,7 +49,9 @@ const MainPage = () => {
         <GithubIMG
           src={githubimg}
           alt=""
-          onClick={() => GithubHandler("https://github.com/JLake310")}
+          onClick={() =>
+            GithubHandler("https://github.com/JLake310/skku-me-choo")
+          }
         />
         <FooterText>Copyright © Jaeyeon Kim All Rights Reserved.</FooterText>
       </FooterWrapper>
