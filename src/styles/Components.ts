@@ -63,7 +63,7 @@ export const RecomText = styled.div`
 
 export const RecomButton = styled.button<ColorType>`
   font-family: "BMHANNAPro";
-  font-size: 20rem;
+  font-size: 18rem;
   color: #3d3d3d;
   cursor: pointer;
   width: 112rem;
