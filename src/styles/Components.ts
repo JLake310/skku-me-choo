@@ -16,6 +16,7 @@ interface ButtonType {
 export const Wrapper = styled.div`
   width: 390rem;
   height: 100vh;
+  flex-grow: 844
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,8 +27,7 @@ export const Wrapper = styled.div`
 
 export const TopDiv = styled.div`
   width: 390rem;
-  height: 399rem;
-  flex-grow: 399;
+  height: 47.274vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,14 +37,22 @@ export const TopDiv = styled.div`
 
 export const BottomDiv = styled.div`
   width: 390rem;
-  height: 445rem;
-  flex-grow: 445;
+  height: 47.985vh;
   display: flex;
   flex-direction: column;
-  // justify-content: center;
+  justify-content: center;
   align-items: center;
   margin: 0 auto;
   background: white;
+`;
+
+export const FooterDiv = styled.div`
+  width: 370rem;
+  height: 4.739vh;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
 `;
 
 export const FlexHeightBox = styled.div<HeightType>`
@@ -55,7 +63,6 @@ export const FlexHeightBox = styled.div<HeightType>`
 export const CampusWrapper = styled.div`
   width: 200rem;
   height: 110rem;
-  flex-grow: 110;
   background: #ffffff;
   box-shadow: 0rem 0rem 15rem rgba(43, 102, 83, 0.2);
   border-radius: 10rem;
@@ -97,14 +104,15 @@ export const CampusText2 = styled.span<ColorType>`
   color: ${(props) => props.colorcode};
 `;
 
-export const TopTextImageDiv = styled.div`
-  width: 192rem;
-  height: 143rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-`;
+// export const TopTextImageDiv = styled.div`
+//   width: 192rem;
+//   height: 143rem;
+//   flex-grow: 143;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   align-items: center;
+// `;
 
 export const TopText = styled.span`
   width: 192rem;
@@ -123,27 +131,16 @@ export const TopIMG = styled.img`
   height: 70rem;
 `;
 
-export const BottomCenterDiv = styled.div`
+export const BottomCenterDiv = styled.div<ColorType>`
   box-sizing: border-box;
 
   width: 370rem;
   height: 335rem;
-  flex-grow: 335;
 
   background: #ffffff;
-  border: 3rem solid #4b81bf;
+  border: 3rem solid ${(props) => props.colorcode};
   border-radius: 10rem;
   margin: 0 auto;
-`;
-
-export const FooterDiv = styled.div`
-  width: 370rem;
-  height: 37.5rem;
-  flex-grow: 37.5;
-
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
 `;
 
 export const RecomDiv = styled.div`
@@ -160,6 +157,7 @@ export const RecomDiv = styled.div`
 export const RecomDesc = styled.span`
   width: 182rem;
   height: 19.01rem;
+  flex-grow: 19.01;
   font-family: "Pretendard-SemiBold";
   font-style: normal;
   font-weight: 600;
@@ -207,12 +205,14 @@ export const PriceSliderDiv = styled.div`
 export const SliderWrapper = styled.div`
   width: 284.54rem;
   height: 16.01rem;
+  flex-grow: 16.01;
   margin: 0 auto;
 `;
 
 export const PriceText = styled.span`
   width: 220rem;
-  height: 21s.01rem;
+  height: 21.01rem;
+  flex-grow: 21.01;
   font-family: "Pretendard-Bold";
   font-style: normal;
   font-weight: 700;
@@ -229,6 +229,7 @@ export const PriceColor = styled.span<ColorType>`
 export const NaverButton = styled.button`
   width: 191.6rem;
   height: 34rem;
+  flex-grow: 34;
   background: #ffffff;
   border: 2rem solid #5fbe54;
   border-radius: 8rem;
@@ -268,4 +269,14 @@ export const CopyrightText = styled.span`
   line-height: 12rem;
   text-align: center;
   margin-top: 9rem;
+`;
+
+export const TopContentWrapper = styled.div`
+  width: 200rem;
+  height: 268rem;
+  flex-grow: 268;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 `;

@@ -59,22 +59,20 @@ const InSaPage = () => {
     <C.Wrapper>
       <C.TopDiv>
         <C.FlexHeightBox height={102} />
-        <C.CampusWrapper>
-          <C.CampusTextWrapper>
-            <C.CampusText1>성균관대</C.CampusText1>
-            <C.CampusText2 colorcode={ColorCode}>인사캠</C.CampusText2>
-          </C.CampusTextWrapper>
-        </C.CampusWrapper>
-        <C.FlexHeightBox height={15} />
-        <C.TopTextImageDiv>
+        <C.TopContentWrapper>
+          <C.CampusWrapper>
+            <C.CampusTextWrapper>
+              <C.CampusText1>성균관대</C.CampusText1>
+              <C.CampusText2 colorcode={ColorCode}>인사캠</C.CampusText2>
+            </C.CampusTextWrapper>
+          </C.CampusWrapper>
           <C.TopText>메뉴 추천 좀</C.TopText>
           <C.TopIMG src={dishimg} alt="" />
-        </C.TopTextImageDiv>
+        </C.TopContentWrapper>
         <C.FlexHeightBox height={29} />
       </C.TopDiv>
       <C.BottomDiv>
-        <C.FlexHeightBox height={35} />
-        <C.BottomCenterDiv>
+        <C.BottomCenterDiv colorcode={ColorCode}>
           <C.FlexHeightBox height={39.45} />
           <C.RecomDiv>
             <C.RecomDesc>누를 때마다 메뉴가 바뀌어요!</C.RecomDesc>
@@ -124,20 +122,19 @@ const InSaPage = () => {
           </C.NaverButton>
           <C.FlexHeightBox height={39.46} />
         </C.BottomCenterDiv>
-        <C.FlexHeightBox height={37.5} />
-        <C.FooterDiv>
-          <C.GithubIMG
-            src={githubimg}
-            alt=""
-            onClick={() =>
-              GithubHandler("https://github.com/JLake310/skku-me-choo")
-            }
-          />
-          <C.CopyrightText>
-            Copyright © Jaeyeon Kim All Rights Reserved.
-          </C.CopyrightText>
-        </C.FooterDiv>
       </C.BottomDiv>
+      <C.FooterDiv>
+        <C.GithubIMG
+          src={githubimg}
+          alt=""
+          onClick={() =>
+            GithubHandler("https://github.com/JLake310/skku-me-choo")
+          }
+        />
+        <C.CopyrightText>
+          Copyright © Jaeyeon Kim All Rights Reserved.
+        </C.CopyrightText>
+      </C.FooterDiv>
     </C.Wrapper>
   );
 };
