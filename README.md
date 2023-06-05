@@ -4,7 +4,7 @@
 
 📎 [체험해보기](https://skku-me-choo.vercel.app/)
 
-<img width="1000" alt="design" src="https://github.com/JLake310/skku-me-choo/assets/86578246/50ae7d56-4588-4dda-8bf9-c41c30323c43">
+<img width="1000" alt="demo3" src="https://github.com/JLake310/skku-me-choo/assets/86578246/8d4ee306-af51-4677-8060-3a1789a83e33">
 
 ## Release Note
 ### v1.0.0
@@ -24,3 +24,6 @@
 
 ### v2.1.0
 디자인 개편
+
+### v2.2.0
+디자인 개편 ver.2
