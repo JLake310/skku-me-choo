@@ -211,8 +211,8 @@ export const SliderWrapper = styled.div`
 `;
 
 export const PriceText = styled.span`
-  width: 205.11rem;
-  height: 21.01rem;
+  width: 220rem;
+  height: 21s.01rem;
   font-family: "Pretendard-Bold";
   font-style: normal;
   font-weight: 700;

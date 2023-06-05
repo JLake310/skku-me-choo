@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import foodData from "@assets/data/data.json";
 import githubimg from "@assets/images/githublogo.png";
 import Slider from "rc-slider";
