@@ -57,77 +57,87 @@ const JaGwaPage = () => {
 
   return (
     <C.Wrapper>
-      <C.HeaderWrapper>
-        <C.FlexHeightBox height={85} />
+      <C.TopDiv>
+        <C.FlexHeightBox height={102} />
         <C.CampusWrapper>
-          <C.HeaderText>성균관대</C.HeaderText>
-          <C.HeightBox height={15} />
-          <C.HeaderText>
-            <C.TextColor colorcode={ColorCode}>자과캠</C.TextColor>
-          </C.HeaderText>
+          <C.CampusTextWrapper>
+            <C.CampusText1>성균관대</C.CampusText1>
+            <C.CampusText2 colorcode={ColorCode}>자과캠</C.CampusText2>
+          </C.CampusTextWrapper>
         </C.CampusWrapper>
         <C.FlexHeightBox height={15} />
-        <C.HeaderText2>메뉴 추천 좀</C.HeaderText2>
-        <C.FlexHeightBox height={15} />
-        <C.DishIMG src={dishimg} alt="" />
-        <C.FlexHeightBox height={41} />
-      </C.HeaderWrapper>
-      <C.CenterWrapper>
-        <C.FlexHeightBox height={46.5} />
-        <C.RecomText>{newFoodList[recom][0]}</C.RecomText>
-        <C.FlexHeightBox height={15} />
-        <C.RecomButton colorcode={ColorCode} onClick={RandomHandler}>
-          메뉴 바꾸기
-        </C.RecomButton>
-        <C.FlexHeightBox height={50} />
-        <C.RangeText>
-          <C.PriceColor colorcode={ColorCode}>{sliderVal[0]}</C.PriceColor>
-          원부터{" "}
-          <C.PriceColor colorcode={ColorCode}>{sliderVal[1]}</C.PriceColor>
-          원까지
-        </C.RangeText>
-        <C.FlexHeightBox height={20} />
-        <C.SliderWrapper>
-          <Slider
-            range
-            railStyle={{ backgroundColor: "#DDDDDD", height: 10 }}
-            trackStyle={{ backgroundColor: ColorCode, height: 10 }}
-            handleStyle={{
-              borderColor: ColorCode,
-              height: 16,
-              width: 16,
-              marginTop: -3,
-              backgroundColor: ColorCode,
-              opacity: 1.0,
-            }}
-            min={PriceRange[0]}
-            max={PriceRange[1]}
-            step={500}
-            defaultValue={[PriceRange[0], PriceRange[1]]}
-            onChange={(value) => {
-              SliderHandler(value);
-            }}
+        <C.TopTextImageDiv>
+          <C.TopText>메뉴 추천 좀</C.TopText>
+          <C.TopIMG src={dishimg} alt="" />
+        </C.TopTextImageDiv>
+        <C.FlexHeightBox height={29} />
+      </C.TopDiv>
+      <C.BottomDiv>
+        <C.FlexHeightBox height={35} />
+        <C.BottomCenterDiv>
+          <C.FlexHeightBox height={39.45} />
+          <C.RecomDiv>
+            <C.RecomDesc>누를 때마다 메뉴가 바뀌어요!</C.RecomDesc>
+            <C.RecomButton
+              colorcode={ColorCode}
+              len={String(newFoodList[recom][0]).length}
+              onClick={RandomHandler}
+            >
+              {newFoodList[recom][0]}
+            </C.RecomButton>
+          </C.RecomDiv>
+          <C.FlexHeightBox height={30.01} />
+          <C.PriceSliderDiv>
+            <C.PriceText>
+              <C.PriceColor colorcode={ColorCode}>{sliderVal[0]}</C.PriceColor>
+              부터{" "}
+              <C.PriceColor colorcode={ColorCode}>{sliderVal[1]}</C.PriceColor>
+              까지
+            </C.PriceText>
+            <C.SliderWrapper>
+              <Slider
+                range
+                railStyle={{ backgroundColor: "#DDDDDD", height: 10 }}
+                trackStyle={{ backgroundColor: ColorCode, height: 10 }}
+                handleStyle={{
+                  borderColor: ColorCode,
+                  height: 16,
+                  width: 16,
+                  marginTop: -3,
+                  backgroundColor: ColorCode,
+                  opacity: 1.0,
+                }}
+                min={PriceRange[0]}
+                max={PriceRange[1]}
+                step={500}
+                defaultValue={[PriceRange[0], PriceRange[1]]}
+                onChange={(value) => {
+                  SliderHandler(value);
+                }}
+              />
+            </C.SliderWrapper>
+          </C.PriceSliderDiv>
+          <C.FlexHeightBox height={50.02} />
+          <C.NaverButton onClick={() => HandleRedirect(newFoodList[recom][1])}>
+            <C.NaverButtonIMG src={placeimg} alt="" />
+            네이버 지도에서 보기
+          </C.NaverButton>
+          <C.FlexHeightBox height={39.46} />
+        </C.BottomCenterDiv>
+        <C.FlexHeightBox height={37.5} />
+        <C.FooterDiv>
+          <C.GithubIMG
+            src={githubimg}
+            alt=""
+            onClick={() =>
+              GithubHandler("https://github.com/JLake310/skku-me-choo")
+            }
           />
-          <C.FlexHeightBox height={63.5} />
-        </C.SliderWrapper>
-        <C.NaverButton onClick={() => HandleRedirect(newFoodList[recom][1])}>
-          <C.PlaceIMG src={placeimg} alt="" />
-          네이버 지도에서 보기
-        </C.NaverButton>
-        <C.FlexHeightBox height={33.25} />
-      </C.CenterWrapper>
-      <C.FooterWrapper>
-        <C.GithubIMG
-          src={githubimg}
-          alt=""
-          onClick={() =>
-            GithubHandler("https://github.com/JLake310/skku-me-choo")
-          }
-        />
-        <C.FooterText>
-          Copyright © Jaeyeon Kim All Rights Reserved.
-        </C.FooterText>
-      </C.FooterWrapper>
+          <C.CopyrightText>
+            Copyright © Jaeyeon Kim All Rights Reserved.
+          </C.CopyrightText>
+        </C.FooterDiv>
+      </C.BottomDiv>
     </C.Wrapper>
   );
 };
