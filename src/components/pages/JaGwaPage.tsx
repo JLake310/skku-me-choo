@@ -90,9 +90,9 @@ const JaGwaPage = () => {
           <C.PriceSliderDiv>
             <C.PriceText>
               <C.PriceColor colorcode={ColorCode}>{sliderVal[0]}</C.PriceColor>
-              부터{" "}
+              원부터{" "}
               <C.PriceColor colorcode={ColorCode}>{sliderVal[1]}</C.PriceColor>
-              까지
+              원까지
             </C.PriceText>
             <C.SliderWrapper>
               <Slider
